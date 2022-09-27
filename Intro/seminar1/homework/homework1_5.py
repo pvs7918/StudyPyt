@@ -20,5 +20,5 @@ y1 = float(input('Y1: '))
 x2 = float(input('X2: '))
 y2 = float(input('Y2: '))
 
-dist = math.sqrt((x2-x1)**2 + (y2-y1)**2)
+dist = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
 print(f'Расстояние между точками -> {dist:.3f}')
