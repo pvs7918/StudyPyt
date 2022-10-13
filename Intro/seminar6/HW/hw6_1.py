@@ -32,7 +32,7 @@ ls = [f(up_value) for i in range(N)]
 # ls = list(map(lambda x:randint(1, x + 1), [up_value for i in range(N)]))
 
 # Дважды создаем список кортежей с помощью enumerate(ls),
-# с результат помещаем значения val2,
+# в результат помещаем значения val2,
 # с условием - берем только те значения, которые больше предыдущих.
 res_ls = [val2 for i1, val1 in enumerate(ls) for i2, val2 in enumerate(ls)
           if val2 > val1 and i2 == i1 + 1]
