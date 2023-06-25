@@ -5,16 +5,16 @@
 import random
 
 # загаданное число
-hidden_number = random.randint(0, 10)
-# количество попыток для разгадывания
+up_value = 100000
+hidden_number = random.randint(0, up_value)
 attemp_cnt = 10
 cur_attemp = 1  # номер попытки отгадывания
 
 while cur_attemp <= attemp_cnt:
-    variant = int(input(f'Отгадайте загаданное число (от 0 до 1000). Попытка {cur_attemp}: '))
-    if variant < 0 or variant > 100000:
+    variant = int(input(f'Отгадайте загаданное число (от 0 до {up_value}). Попытка {cur_attemp}: '))
+    if variant < 0 or variant > up_value:
         print('Введенное число выходит за рамки условий')
-    elif variant >= 0 and variant <= 100000:
+    elif variant >= 0 and variant <= up_value:
         if variant == hidden_number:
             print('Вы отгадали число! Поздравляю!')
             break
