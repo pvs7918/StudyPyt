@@ -13,6 +13,7 @@ isSimple = True
 for i in range(2, numb):
     if numb % i == 0:
         isSimple = False
+        break
 
 res = f'Число {numb} - '
 if isSimple:
