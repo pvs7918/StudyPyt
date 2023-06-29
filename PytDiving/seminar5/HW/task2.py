@@ -10,10 +10,3 @@ royalty = ['10.25%', '9.75%', '15.05%']  # надо добавить лямбд�
 
 my_dict = {x: y * float(z[:-1]) for x in names for y in rate for z in royalty}
 print(my_dict)
-
-
-
-# royalty = ['10.25%', '9.75%', '15.05%']
-# my_dict = {float(z[:-1]) for z in royalty}
-#
-# print(my_dict)
