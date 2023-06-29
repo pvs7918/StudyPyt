@@ -9,7 +9,7 @@ print(list(map(lambda x, y, z: 2 * x + 2.5 * y + z, a, b, c)))
 print(list(map(lambda x: x['name'], dict_a)))
 print(list(map(lambda x: x['points'] * 10, dict_a)))
 print(list(map(lambda x: x['name'] == "python", dict_a)))
-
+lambda x: x[:-1], royalty
 print(list(filter(lambda x: x > 5, c)))
 print(list(filter(lambda x: x % 2 == 0, a)))
 print(list(filter(lambda x: x['name'] == 'python', dict_a)))

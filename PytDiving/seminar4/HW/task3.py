@@ -223,7 +223,7 @@ history = []
 print(" Работа банкоматов \n" + '-' * 18 + '\n')
 
 for oper in operations:
-    # для операции определяем банкомата и килента по указанным в операции id  - atm, client
+    # для операции определяем банкомат и килента по указанным в операции id  - atm, client
     oper_atm = None
     for atm in atms:
         if atm["id"] == oper["atm"]:
