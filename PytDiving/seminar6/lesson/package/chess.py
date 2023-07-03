@@ -8,10 +8,12 @@
 import random
 
 
-def desk_check_beating(position: list) -> bool:
+def desk_check_beating(position: list) -> (bool, str):
     # функция проверяет позицию из 8 ферзей
     # position - расположение ферзей на доске проверяем бьют они друг друга или нет
     # например [1, 5, 8, 6, 3, 7, 2, 4]
+    # возвращается кортеж - bool (False - не бюьт друг друга, True - бьют),
+    # str - пояснение какая фигура какую бьёт
 
     # заполняем доску нулями для начала
     desk = [[0 for i in range(8)] for i in range(8)]
@@ -21,7 +23,7 @@ def desk_check_beating(position: list) -> bool:
         # делаем сразу проверку бьют ли ферзи друг друга по горизонтали
         for j in range(i):
             if position[i] == position[j]:
-                return True
+                return True, f'Ферзь ({position[i] + 1},{i + 1}) бьет ферзя ({position[j] + 1},{j + 1})'
 
     # проверки - бьют друг друга или нет
     # проверку по вертикали не делаем так как каждый ферзь в своей колонке согласно позиции
@@ -38,8 +40,7 @@ def desk_check_beating(position: list) -> bool:
 
         while r >= 0 and c >= 0:
             if desk[r][c] == 1:
-                print(f'Ферзь ({br + 1},{bc + 1}) бьет ферзя ({r + 1},{c + 1})')
-                return True
+                return True, f'Ферзь ({br + 1},{bc + 1}) бьет ферзя ({r + 1},{c + 1})'
             r -= 1
             c -= 1
 
@@ -49,8 +50,7 @@ def desk_check_beating(position: list) -> bool:
 
         while r >= 0 and c < 8:
             if desk[r][c] == 1:
-                print(f'Ферзь ({br + 1},{bc + 1}) бьет ферзя ({r + 1},{c + 1})')
-                return True
+                return True, f'Ферзь ({br + 1},{bc + 1}) бьет ферзя ({r + 1},{c + 1})'
             r -= 1
             c += 1
 
@@ -59,8 +59,7 @@ def desk_check_beating(position: list) -> bool:
         c = bc - 1
         while r < 8 and c >= 0:
             if desk[r][c] == 1:
-                print(f'Ферзь ({br + 1},{bc + 1}) бьет ферзя ({r + 1},{c + 1})')
-                return True
+                return True, f'Ферзь ({br + 1},{bc + 1}) бьет ферзя ({r + 1},{c + 1})'
             r += 1
             c -= 1
 
@@ -69,12 +68,11 @@ def desk_check_beating(position: list) -> bool:
         c = bc + 1;
         while r < 8 and c < 8:
             if desk[r][c] == 1:
-                print(f'Ферзь ({br + 1},{bc + 1}) бьет ферзя ({r + 1},{c + 1})')
-                return True
+                return True, f'Ферзь ({br + 1},{bc + 1}) бьет ферзя ({r + 1},{c + 1})'
             r += 1
             c += 1
 
-    return False  # False - ферзи не бьют друг друга
+    return False, 'Ферзи не бьют друг друга'  # False
 
 
 def print_position(position: list):
@@ -103,14 +101,14 @@ def generate_random_position() -> list:
             if cur_pos in pos:
                 cur_pos = 0
             else:
-                pos.append(cur_pos)     #если такой позиции ещё не было то добавляем
+                pos.append(cur_pos)  # если такой позиции ещё не было то добавляем
     return pos
+
+
 if __name__ == '__main__':
     # тестирование
     # position = [1, 5, 8, 6, 3, 7, 2, 4]  #позиция когда не бьют друг друга
     position = [5, 7, 8, 6, 3, 1, 2, 4]  # позиция когда бьют друг друга
     print_position(position)
-    if desk_check_beating(position):
-        print('Ферзи бьют друг друга')
-    else:
-        print('Ферзи НЕ бьют друг друга')
+    status, reason = desk_check_beating(position)
+    print(reason)

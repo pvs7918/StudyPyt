@@ -7,10 +7,12 @@ from package import print_position, desk_check_beating, generate_random_position
 
 number_true_pos = 4
 cur_true_pos = 0
+print('Список верных позиций:\n')
 
-while cur_true_pos <= number_true_pos:
+while cur_true_pos < number_true_pos:
     position = generate_random_position()
-    if desk_check_beating(position):
+    status, reason = desk_check_beating(position)
+    if not status:    #False - ферзи не бьют друг друга
         print_position(position)
         cur_true_pos += 1
 
