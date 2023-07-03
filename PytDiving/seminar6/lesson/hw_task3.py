@@ -12,14 +12,6 @@ print('Список верных позиций:\n')
 while cur_true_pos < number_true_pos:
     position = generate_random_position()
     status, reason = desk_check_beating(position)
-    if not status:    #False - ферзи не бьют друг друга
+    if not status:  # False - ферзи не бьют друг друга
         print_position(position)
         cur_true_pos += 1
-
-# position = [1, 5, 8, 6, 3, 7, 2, 4]  #позиция когда не бьют друг друга
-# position = [5, 7, 8, 6, 3, 1, 2, 4]  # позиция когда бьют друг друга
-# print_position(position)
-# if desk_check_beating(position):
-#     print('Ферзи бьют друг друга')
-# else:
-#     print('Ферзи НЕ бьют друг друга')
