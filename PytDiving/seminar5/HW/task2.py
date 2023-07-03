@@ -6,7 +6,12 @@
 
 names = ['Иван', 'Мария', 'Петр']
 rate = [5, 7, 9]
-royalty = ['10.25%', '9.75%', '15.05%']  # надо добавить лямбда-выражение в for z in royalty
+royalty = ['10.25%', '9.75%', '15.05%']
 
-my_dict = {x: y * float(z[:-1]) for x in names for y in rate for z in royalty}
+# my_dict = {x: y * float(z[:-1]) for x in names for y in rate for z in royalty} # это здесь не подходит
+my_dict = {names[i]: rate[i] * float(royalty[i][:-1]) for i in range(len(names))}
+
 print(my_dict)
+
+# не могу понять, почему имена меняются, а премия везде одинаковая
+# {'Иван': 15034.95, 'Мария': 15034.95, 'Петр': 15034.95}

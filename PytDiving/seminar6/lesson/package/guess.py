@@ -8,7 +8,7 @@
 import random
 
 
-def guess_f(minimum, maximum, tries):
+def guess_f(tries=3, maximum=10, minimum=1):
     number = random_number = random.randint(minimum, maximum)
 
     while tries:
