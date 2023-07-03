@@ -13,7 +13,5 @@ from package import print_position, desk_check_beating
 # position = [1, 5, 8, 6, 3, 7, 2, 4]  #позиция когда не бьют друг друга
 position = [5, 7, 8, 6, 3, 1, 2, 4]  # позиция когда бьют друг друга
 print_position(position)
-if desk_check_beating(position):
-    print('Ферзи бьют друг друга')
-else:
-    print('Ферзи НЕ бьют друг друга')
+status, reason = desk_check_beating(position)
+print(reason)
