@@ -77,6 +77,7 @@ class Operation:
             self.__put_cash_to_account()
         if self.name == "снятие":
             self.__dispense_cash_to_client()
+
         print(self.description)
 
     def __put_cash_to_account(self):
@@ -84,7 +85,7 @@ class Operation:
         # при этом с клиента списывается комиссия в размере commision %
 
         # размер комиссии по умолчанию
-        oper.commision = 1.5
+        self.commision = 1.5
 
         # Печатаем предварительную информацию, перед выполнением операции
         txt_ = 'Операция - Внесение наличных на банкомате:'
@@ -284,15 +285,15 @@ if __name__ == '__main__':
     # Список операций, которые будут выполнятся
     operations = \
         [Operation(1, name='внесение', src_cash_size=5000, atm=1, client=1),
-         Operation(2, name='внесение', src_cash_size=725, atm=2, client=2),
-         Operation(3, name='внесение', src_cash_size=6000000, atm=2, client=3),
-         Operation(4, name='снятие', src_cash_size=6000000, atm=2, client=1),
-         Operation(5, name='внесение', src_cash_size=20000, atm=2, client=3),
-         Operation(6, name='снятие', src_cash_size=45000, atm=1, client=1),
-         Operation(7, name='внесение', src_cash_size=3000, atm=2, client=3),
-         Operation(8, name='внесение', src_cash_size=10000, atm=2, client=3),
-         Operation(9, name='внесение', src_cash_size=100, atm=2, client=3),
-         Operation(10, name='снятие', src_cash_size=5000000, atm=1, client=3)]
+         Operation(2, 'внесение', 725, 2, 2),
+         Operation(3, 'внесение', 6000000, 2, 3),
+         Operation(4, 'снятие', 6000000, 2, 1),
+         Operation(5, 'внесение', 20000, 2, 3),
+         Operation(6, 'снятие', 45000, 1, 1),
+         Operation(7, 'внесение', 3000, 2, 3),
+         Operation(8, 'внесение', 10000, 2, 3),
+         Operation(9, 'внесение', 100, 2, 3),
+         Operation(10, 'снятие', 5000000, 1, 3)]
 
     # словарь истории выполненных операций (формируется динамически после выполнения операций)
     oper_history = {}
