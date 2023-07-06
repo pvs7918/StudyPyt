@@ -18,8 +18,8 @@ def something_strange(new_file):
 
 
     with (
-    open('file.txt', 'r', encoding='utf-8') as f1,
-    open('file_with_names.txt', 'r', encoding='utf-8') as f2,
+    open('task1_out.txt', 'r', encoding='utf-8') as f1,
+    open('task2_names.txt', 'r', encoding='utf-8') as f2,
     open(new_file, 'w', encoding='utf-8') as f3
     ):
         while numbers := f1.readline():
@@ -44,4 +44,4 @@ def something_strange(new_file):
             else:
                 f3.write(massive_of_names[i].upper() + " " + str(round(massive_multiplied_numbers[i])) + "\n")
 
-something_strange("appended_file.txt")
+something_strange("task3_appended_file.txt")

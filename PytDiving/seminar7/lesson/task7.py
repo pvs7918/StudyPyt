@@ -3,6 +3,8 @@
 # ✔ Каждая группа включает файлы с несколькими расширениями.
 # ✔ В исходной папке должны остаться только те файлы, которые не подошли для сортировки.
 
+import os
+
 def sort_files(dir_path: str, video_dir: str = 'Video', image_dir: str = 'Image', music_dir: str = 'Music',
                doc_dir: str = 'Documents'):
     if not os.path.isdir(dir_path):
@@ -31,4 +33,4 @@ def sort_files(dir_path: str, video_dir: str = 'Video', image_dir: str = 'Image'
 
     return f'Файлы в папке {dir_path} отсортированы по типам'
 
-sort_files('test')
+print(sort_files('test'))
