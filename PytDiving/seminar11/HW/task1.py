@@ -13,7 +13,9 @@ class Matrix:
     def __init__(self, a: int, b: int, matrix: list = []):
         self.a = a
         self.b = b
-        if matrix == []:
+        if self.a < 1 or self.b < 1:
+            self.matrix = None
+        elif matrix == []:
             self._fill_matrix()  # наполняем матрицу случайными значениями
         else:
             self.matrix = matrix
@@ -40,6 +42,7 @@ class Matrix:
         res_str = f'Матрица ({self.a}Х{self.b})\n'
         for i in range(self.a):
             res_str += ", ".join(map(str, self.matrix[i])) + '\n'
+        res_str += 'сумма элементов = ' + str(self.sum_all()) + '\n'
         return res_str
 
     def __repr__(self):
@@ -63,7 +66,7 @@ class Matrix:
         return None
 
     def __mul__(self, other):
-        """метод умножения матриц. self(a,b)X other(a,b). Условие: s.b=o.a"""
+        """метод умножения матриц. self(a,b) X other(a,b). Условие: s.b=o.a"""
         res_matrix = []
         if self.b == other.a:
             for i in range(self.a):
