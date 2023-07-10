@@ -1,5 +1,11 @@
 [
     {
+        "parent_fold": "C:\\Users\\Павел\\PycharmProjects\\StudyPyt\\PytDiving\\seminar8\\HW",
+        "type": "folder",
+        "name": "Task1_Fold",
+        "size": 1197
+    },
+    {
         "parent_fold": "C:\\Users\\Павел\\PycharmProjects\\StudyPyt\\PytDiving\\seminar8\\HW\\Task1_Fold",
         "type": "folder",
         "name": "SF1",
@@ -9,13 +15,13 @@
         "parent_fold": "C:\\Users\\Павел\\PycharmProjects\\StudyPyt\\PytDiving\\seminar8\\HW\\Task1_Fold",
         "type": "folder",
         "name": "SF2",
-        "size": 0
+        "size": 29
     },
     {
         "parent_fold": "C:\\Users\\Павел\\PycharmProjects\\StudyPyt\\PytDiving\\seminar8\\HW\\Task1_Fold",
         "type": "folder",
         "name": "SF3",
-        "size": 0
+        "size": 1142
     },
     {
         "parent_fold": "C:\\Users\\Павел\\PycharmProjects\\StudyPyt\\PytDiving\\seminar8\\HW\\Task1_Fold",
@@ -45,7 +51,7 @@
         "parent_fold": "C:\\Users\\Павел\\PycharmProjects\\StudyPyt\\PytDiving\\seminar8\\HW\\Task1_Fold\\SF3",
         "type": "folder",
         "name": "SF3_1",
-        "size": 0
+        "size": 1142
     },
     {
         "parent_fold": "C:\\Users\\Павел\\PycharmProjects\\StudyPyt\\PytDiving\\seminar8\\HW\\Task1_Fold\\SF3",
@@ -57,7 +63,7 @@
         "parent_fold": "C:\\Users\\Павел\\PycharmProjects\\StudyPyt\\PytDiving\\seminar8\\HW\\Task1_Fold\\SF3\\SF3_1",
         "type": "folder",
         "name": "SF3_1_1",
-        "size": 0
+        "size": 1142
     },
     {
         "parent_fold": "C:\\Users\\Павел\\PycharmProjects\\StudyPyt\\PytDiving\\seminar8\\HW\\Task1_Fold\\SF3\\SF3_1\\SF3_1_1",
