@@ -11,16 +11,24 @@ import os
 import csv
 import json
 import pickle
+from pathlib import Path
 
-
-def read_folder(subfolder_name):
+def read_folder(source_folder_name):
     # полной путь к сканируемому каталогу
-    dir_name = os.path.join(os.getcwd(), subfolder_name)
+    source_dir_path = os.path.join(os.getcwd(), source_folder_name)
     res_list = []  # результирующий список словарей
 
+    #Добавляем исходный каталог
+    dict_row = {}
+    dict_row['parent_fold'] = str(Path(source_dir_path).parent)
+    dict_row['type'] = 'folder'
+    dict_row['name'] = source_folder_name
+    dict_row['size'] = 0
+    res_list.append(dict_row)
+
     # Обход подкаталогов и файлов с помощью os.walk
-    for dir_path, dir_names, file_names in os.walk(dir_name):
-        # получаем списки подкаталогов dir_name и файлов file_name
+    for dir_path, dir_names, file_names in os.walk(source_dir_path):
+        # получаем списки подкаталогов dir_path и файлов file_name
         for cur_dir in dir_names:
             dict_row = {}
             dict_row['parent_fold'] = dir_path
@@ -36,6 +44,16 @@ def read_folder(subfolder_name):
             dict_row['name'] = cur_file
             dict_row['size'] = os.path.getsize(os.path.join(dir_path, cur_file))  # размер файла в байтах
             res_list.append(dict_row)
+            # Для каталогов, в которых находится данный файл
+            # до source_dir_path включительно добавляем размер данного файла
+            cur_dir = dir_path
+            while len(cur_dir) >= len(source_dir_path):
+                for item in res_list:
+                    if item['type'] == 'folder' and \
+                      cur_dir == os.path.join(item['parent_fold'], item['name']):
+                        item['size'] += dict_row['size']
+                cur_dir = str(Path(cur_dir).parent)         # поднимаемся на один каталог выше
+                #cur_dir = cur_dir[:cur_dir.rfind('\\')]    # вариант 2
 
     # запись результирующего списка словарей в файл json
     with open('task1_res.json', 'w', encoding='utf-8') as f1:
@@ -51,6 +69,7 @@ def read_folder(subfolder_name):
     # запись результирующего списка словарей в файл pickle
     with open('task1_res.pickle', "wb") as f3:
         pickle.dump(res_list, f3)
+
 
 if __name__ == "__main__":
     read_folder("Task1_Fold")
