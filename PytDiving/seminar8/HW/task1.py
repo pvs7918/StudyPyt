@@ -13,12 +13,13 @@ import json
 import pickle
 from pathlib import Path
 
+
 def read_folder(source_folder_name):
     # полной путь к сканируемому каталогу
     source_dir_path = os.path.join(os.getcwd(), source_folder_name)
     res_list = []  # результирующий список словарей
 
-    #Добавляем исходный каталог
+    # Добавляем исходный каталог
     dict_row = {}
     dict_row['parent_fold'] = str(Path(source_dir_path).parent)
     dict_row['type'] = 'folder'
@@ -28,7 +29,7 @@ def read_folder(source_folder_name):
 
     # Обход подкаталогов и файлов с помощью os.walk
     for dir_path, dir_names, file_names in os.walk(source_dir_path):
-        # получаем списки подкаталогов dir_path и файлов file_name
+        # получаем списки подкаталогов dir_names и файлов file_name
         for cur_dir in dir_names:
             dict_row = {}
             dict_row['parent_fold'] = dir_path
@@ -50,10 +51,10 @@ def read_folder(source_folder_name):
             while len(cur_dir) >= len(source_dir_path):
                 for item in res_list:
                     if item['type'] == 'folder' and \
-                      cur_dir == os.path.join(item['parent_fold'], item['name']):
+                            cur_dir == os.path.join(item['parent_fold'], item['name']):
                         item['size'] += dict_row['size']
-                cur_dir = str(Path(cur_dir).parent)         # поднимаемся на один каталог выше
-                #cur_dir = cur_dir[:cur_dir.rfind('\\')]    # вариант 2
+                cur_dir = str(Path(cur_dir).parent)  # поднимаемся на один каталог выше
+                # cur_dir = cur_dir[:cur_dir.rfind('\\')]    # вариант 2
 
     # запись результирующего списка словарей в файл json
     with open('task1_res.json', 'w', encoding='utf-8') as f1:
