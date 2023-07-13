@@ -8,6 +8,7 @@
 from random import randint
 from typing import Callable
 import csv
+import json
 
 
 def solving_quad_equation(a, b, c):
@@ -21,9 +22,9 @@ def solving_quad_equation(a, b, c):
 
 
 def gen_csv(cnt: int, n_min, n_max):
-    with open('task1_res.csv', 'w', newline='', encoding='utf-8') as f1:
+    with open('task1.csv', 'w', newline='', encoding='utf-8') as f1:
         csv_write = csv.DictWriter(f1,
-                                   fieldnames=["a", "b", "c", "roots"],
+                                   fieldnames=["a", "b", "c"],
                                    dialect='excel',
                                    quoting=csv.QUOTE_NONNUMERIC)
         csv_write.writeheader()
@@ -33,11 +34,24 @@ def gen_csv(cnt: int, n_min, n_max):
             c = randint(n_min, n_max + 1)
             csv_write.writerow([a, b, c])
 
-def read_csv_decide_equations():
+
+def read_csv_and_decide_equations():
+    with open('task1.csv', 'r', newline='', encoding='utf-8') as f1:
+        csv_file = csv.reader(f1, delimiter=",")
+        res_dict = {}
+        for row in csv_file:
+            a, b, c = row.split()
+            res_dict[a, b, c] = solving_quad_equation(a, b, c)
+    return res_dict
+
+
+def save_to_json(res_dict):
+    with open('task1.json', 'w', encoding='utf-8') as f1:
+        json.dump(res_dict, f1, ensure_ascii=False, indent=4)
 
 
 
-res_equation = solving_quad_equation(a, b, c, )
+
 
 # def outer() -> Callable:
 #     num_range = int(input('Input number 1 -- 100: '))
