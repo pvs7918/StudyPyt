@@ -26,7 +26,7 @@ for ch in bad_symbols:
 space_cnts = set()  # наличие какого количества пробелов в файле
 prev_symb = ''
 cur_space_count = 0
-for i, ch in enumerate(nice_text):
+for ch in nice_text:
     if ch == ' ':
         cur_space_count += 1
     else:

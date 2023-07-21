@@ -3,6 +3,8 @@
 # сохраняет значения в JSON файл.
 
 import json
+from collections import defaultdict
+
 
 class Factorial:
 

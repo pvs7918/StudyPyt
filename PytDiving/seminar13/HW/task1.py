@@ -83,9 +83,9 @@ class ErrorTriangleNegativeSide(ErrorTriangleDefault):
         res = 'У треугольника отрицательная длина стороны - это недопустимо.\n'
         if self.tr.a < 0:
             res += f'Сторона a={self.tr.a}'
-        elif self.tr.a < 0:
+        elif self.tr.b < 0:
             res += f'Сторона b={self.tr.b}'
-        elif self.tr.a < 0:
+        elif self.tr.c < 0:
             res += f'Сторона c={self.tr.c}'
         return res
 
