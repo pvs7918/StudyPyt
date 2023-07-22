@@ -201,9 +201,10 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         date_text_list = sys.argv[1:]
     else:
-        date_text_list = ["4-й февраля", "5 7", "суббота 6", "5-е воскресенье декабря", "5 7 12", "5-е воскресенье 12",
+        date_text_list = ["4-й февраля", "5", "суббота 6", "5-е воскресенье декабря", "5 7 12", "5-е воскресенье 12",
                           "3-я пятница июля", "1-й четверг ноября", "3-я среда мая", "3-я 5 июля", "1-й 4 11"]
 
     for src_text in date_text_list:
         cur_date, comment = my_parse_date(src_text)
+        logging.info(comment)
         print(comment)
