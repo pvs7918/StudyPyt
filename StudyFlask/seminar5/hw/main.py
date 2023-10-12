@@ -82,14 +82,14 @@ def update_user(request: Request, attrs: UserAttrs):
             return templates.TemplateResponse("users.html", {"request": request, "users": collection})
     raise HTTPException(status_code=404, detail="User not found")
 
-# #DELETE(id) - удаление пользователя
-# @app.delete('/users/{id}', response_model=HTMLResponse)
-# def delete_user(request: Request, id: int):
-#     for user in collection:
-#         if user.id == id:
-#             collection.remove(user)
-#         return templates.TemplateResponse("users.html", {"request": request, "users": collection})
-#     raise HTTPException(status_code=404, detail="User not found")
+#DELETE(id) - удаление пользователя
+@app.delete('/users/{id}', response_model=HTMLResponse)
+def delete_user(request: Request, id: int):
+    for user in collection:
+        if user.id == id:
+            collection.remove(user)
+        return templates.TemplateResponse("users.html", {"request": request, "users": collection})
+    raise HTTPException(status_code=404, detail="User not found")
 
 
 if __name__ == '__main__':
