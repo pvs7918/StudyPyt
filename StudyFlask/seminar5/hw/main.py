@@ -42,15 +42,6 @@ collection = [
     User(id=2, name='Dyakov Semen', email='dyakov2@first.su')
 ]
 
-#Главная страница
-# @app.get('/')
-# async def home():
-#     context = {'users': collection}
-#     return render_template('home.html', **context)
-#     # return templates.TemplateResponse("home.html", {"users": collection})
-#     # return render_template('home.html')
-
-
 
 #получить список всех пользователей
 @app.get('/users/', response_class=HTMLResponse)
