@@ -19,3 +19,7 @@ def coin(request):
 def clients(request):
     client = Client.objects.all()
     return HttpResponse(client)
+
+def clients(request, id):
+    client = Client.objects.all()
+    return HttpResponse(client)
